@@ -795,7 +795,7 @@ def _read_iteratively(key_instance, fp, delim):
         try:
             # Default buffer size is 8192 bytes
             data = next(key_instance)
-            fp.write(str(data).replace(chr(1), delim))
+            fp.write(data.decode('latin-1').replace(chr(1), delim))
         except StopIteration:
             # Stream closes itself when the exception is raised
             return
